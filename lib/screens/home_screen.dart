@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/home/home_bloc.dart';
+import '../pages/account_page.dart';
+import '../pages/shipping_page.dart';
 import '../pages/shopping_page.dart';
 import '../responsive_layout.dart';
 import '../widgets/e_com_drawer.dart';
-import '../widgets/e_com_items.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -38,9 +39,7 @@ class HomeScreen extends StatelessWidget {
   Widget _getPage(index) {
     switch (index) {
       case 0:
-        return Center(
-          child: Text("Account"),
-        );
+        return AccountPage();
       case 1:
         return ShoppingPage();
       case 2:
@@ -49,7 +48,7 @@ class HomeScreen extends StatelessWidget {
         );
       case 3:
         return Center(
-          child: Text("Shipping"),
+          child: ShippingPage(),
         );
       default:
         return Center(
