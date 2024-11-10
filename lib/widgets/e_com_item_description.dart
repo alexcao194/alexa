@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../generared/assets.dart';
 import 'top_bar_description.dart';
 
 class ECommerceItemDescription extends StatelessWidget {
@@ -24,7 +25,7 @@ class ECommerceItemDescription extends StatelessWidget {
                       CircleAvatar(
                         maxRadius: 24,
                         backgroundColor: Colors.transparent,
-                        backgroundImage: AssetImage("images/switch_logo.png"),
+                        backgroundImage: AssetImage(Assets.pngSwitchLogo),
                       ),
                       SizedBox(width: 20),
                       Expanded(
@@ -75,7 +76,7 @@ class ECommerceItemDescription extends StatelessWidget {
                                               child: ClipRRect(
                                                 borderRadius: BorderRadius.circular(8),
                                                 child: Image.asset(
-                                                  "images/switch_$index.jpg",
+                                                  "assets/jpg/switch_$index.jpg",
                                                   fit: BoxFit.contain,
                                                 ),
                                               ),
@@ -89,7 +90,7 @@ class ECommerceItemDescription extends StatelessWidget {
                                             child: ClipRRect(
                                               borderRadius: BorderRadius.circular(8),
                                               child: Image.asset(
-                                                "images/switch_box.jpg",
+                                                Assets.jpgSwitch2,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),

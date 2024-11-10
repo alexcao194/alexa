@@ -1,33 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sellar_e_commerce/widgets/filled_field.dart';
 
-class InfoField extends StatefulWidget {
-  final String value;
-
-  const InfoField({super.key, required this.value});
-
-  @override
-  State<InfoField> createState() => _InfoFieldState();
-}
-
-class _InfoFieldState extends State<InfoField> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: widget.value,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none,
-          ),
-          fillColor: Theme.of(context).secondaryHeaderColor,
-          filled: true,
-        ),
-      ),
-    );
-  }
-}
+import '../generared/assets.dart';
+import '../widgets/rounded_button.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -36,159 +11,153 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        padding: const EdgeInsets.all(40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Account Information",
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(context).primaryColor,
+                      width: 1,
+                    ),
+                    shape: BoxShape.circle,
                   ),
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Name:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Alexa")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Email:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "alexcao194@gmail.com")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Gender:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Male")),
-                const SizedBox(width: 8),
-                SizedBox(width: 80, child: Text("Birthday:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "19/04/2003")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Nation:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Vietnam")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Province:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Hanoi")),
-                const SizedBox(width: 8),
-                SizedBox(width: 80, child: Text("District:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Cau Giay")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Address:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "123 Nguyen Trai")),
-              ],
-            ),
-            Text(
-              "Paypal Information",
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(200),
+                    child: Image.asset(
+                      Assets.jpgSwitch2,
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Card Number:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "12736871348723645")),
+                ),
+                SizedBox(width: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Cao Viet Duc",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "alexcao194@gmail.com",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
+            SizedBox(height: 40),
             Row(
               children: [
-                SizedBox(width: 80, child: Text("Card Holder Name:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Cao Viet Duc")),
+                Expanded(
+                  child: Column(
+                    children: [
+                      FilledField(
+                        label: "Full Name",
+                        hint: "Cao Viet Duc",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "Gender",
+                        hint: "Male",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "Phone",
+                        hint: "0123456789",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    children: [
+                      FilledField(
+                        label: "Country",
+                        hint: "Vietnam",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "Province",
+                        hint: "Hanoi",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "Address",
+                        hint: "Cau Giay",
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Expiration Date:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "06/27")),
-              ],
+            const SizedBox(height: 20),
+            Text(
+              "Billing Information",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
+            const SizedBox(height: 20),
             Row(
               children: [
-                SizedBox(width: 80, child: Text("Expiration Date:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "06/27")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("Billing Address:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "123 Nguyen Trai, Hanoi, Vietnam")),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 80, child: Text("CCV:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "234")),
-                const SizedBox(width: 8),
-                SizedBox(width: 80, child: Text("Card Type:", textAlign: TextAlign.end)),
-                const SizedBox(width: 8),
-                Expanded(child: InfoField(value: "Paypal")),
+                Expanded(
+                  child: Column(
+                    children: [
+                      FilledField(
+                        label: "Card Number",
+                        hint: "1234 5678 9101 1121",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "Card Holder",
+                        hint: "Cao Viet Duc",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    children: [
+                      FilledField(
+                        label: "Expiration Date",
+                        hint: "12/21",
+                      ),
+                      SizedBox(height: 20),
+                      FilledField(
+                        label: "CVV",
+                        hint: "123",
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                ElevatedButton(
-                  style: ButtonStyle(
-                      shape: WidgetStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      padding: WidgetStateProperty.all(
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                      ),
-                      backgroundColor: WidgetStateProperty.all(Colors.white.withOpacity(0.8))),
-                  child: Text(
-                    "Discard",
-                    style: TextStyle(color: Theme.of(context).colorScheme.error, fontWeight: FontWeight.bold),
+                RoundedButton(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text("Save Changes", style: TextStyle(color: Colors.black.withOpacity(0.8))),
                   ),
                   onPressed: () {},
                 ),
-                const SizedBox(width: 8),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      shape: WidgetStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      padding: WidgetStateProperty.all(
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                      ),
-                      backgroundColor: WidgetStateProperty.all(Colors.white.withOpacity(0.8))),
-                  child: Text(
-                    "Update",
-                    style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
-                  ),
-                  onPressed: () {},
-                )
               ],
             )
           ],

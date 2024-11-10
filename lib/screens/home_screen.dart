@@ -4,7 +4,7 @@ import 'package:sellar_e_commerce/blocs/auth/auth_bloc.dart';
 
 import '../blocs/home/home_bloc.dart';
 import '../pages/account_page.dart';
-import '../pages/card_page.dart';
+import '../pages/cart_page.dart';
 import '../pages/shipping_page.dart';
 import '../pages/shopping_page.dart';
 import '../responsive_layout.dart';

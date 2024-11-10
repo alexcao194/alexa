@@ -1,3 +1,5 @@
+import '../generared/assets.dart';
+
 class Item {
   final String image, title;
   final int amount, uid;
@@ -14,48 +16,48 @@ List<Item> products = [
     uid: 1,
     title: "PS5 Controller",
     amount: 75,
-    image: "images/ps5.png",
+    image: Assets.pngPs5,
   ),
   Item(
     uid: 2,
     title: "Drone",
     amount: 155,
-    image: "images/drone.png",
+    image: Assets.pngDrone,
   ),
   Item(
     uid: 3,
     title: "Beats Studio",
     amount: 230,
-    image: "images/beats.png",
+    image: Assets.pngBeats,
   ),
   Item(
     uid: 4,
     title: "Alexa",
     amount: 45,
-    image: "images/alexa.png",
+    image: Assets.pngAlexa,
   ),
   Item(
     uid: 5,
     title: "Nintendo Switch",
     amount: 298,
-    image: "images/switch.png",
+    image: Assets.pngSwitch,
   ),
   Item(
     uid: 6,
     title: "Apple Watch",
     amount: 165,
-    image: "images/watch.png",
+    image: Assets.pngWatch,
   ),
   Item(
     uid: 7,
     title: "Macbook",
     amount: 1950,
-    image: "images/mac.png",
+    image: Assets.pngMac,
   ),
   Item(
     uid: 8,
     title: "Iphone",
     amount: 1200,
-    image: "images/iphone.png",
+    image: Assets.pngIphone,
   ),
 ];

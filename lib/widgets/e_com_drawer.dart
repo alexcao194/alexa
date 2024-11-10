@@ -11,7 +11,7 @@ class ECommerceDrawer extends StatelessWidget {
   const ECommerceDrawer({super.key});
 
   static const List<String> labels = [
-    "Account",
+    "Profile",
     "Shopping",
     "Cart",
     "Orders",
