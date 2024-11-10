@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in_web/web_only.dart';
 
 import '../blocs/home/home_bloc.dart';
-import '../generared/assets.dart';
 import 'drawer_items.dart';
 
 class ECommerceDrawer extends StatelessWidget {
@@ -13,6 +13,7 @@ class ECommerceDrawer extends StatelessWidget {
   static const List<String> labels = [
     "Account",
     "Shopping",
+    "Cart",
     "Orders",
     "Shipping",
   ];
@@ -20,6 +21,7 @@ class ECommerceDrawer extends StatelessWidget {
   static const List<IconData> icons = [
     Icons.account_box_rounded,
     Icons.shop_rounded,
+    Icons.shopping_cart_rounded,
     Icons.newspaper,
     Icons.cable_rounded,
   ];
@@ -49,33 +51,7 @@ class ECommerceDrawer extends StatelessWidget {
                     constraints: BoxConstraints.tightFor(
                       width: 300,
                     ),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          shape: WidgetStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          padding: WidgetStateProperty.all(
-                            EdgeInsets.symmetric(vertical: 20),
-                          ),
-                          backgroundColor: WidgetStateProperty.all(Colors.white.withOpacity(0.8))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            Assets.pngGoogle,
-                            width: 20,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            "Sign In with Google",
-                            style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      onPressed: () {},
-                    ),
+                    child: renderButton(),
                   ),
                   SizedBox(height: 40),
                   ...List.generate(

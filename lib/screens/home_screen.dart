@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sellar_e_commerce/blocs/auth/auth_bloc.dart';
 
 import '../blocs/home/home_bloc.dart';
 import '../pages/account_page.dart';
+import '../pages/card_page.dart';
 import '../pages/shipping_page.dart';
 import '../pages/shopping_page.dart';
 import '../responsive_layout.dart';
 import '../widgets/e_com_drawer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
@@ -43,10 +50,12 @@ class HomeScreen extends StatelessWidget {
       case 1:
         return ShoppingPage();
       case 2:
+        return CartPage();
+      case 3:
         return Center(
           child: Text("Orders"),
         );
-      case 3:
+      case 4:
         return Center(
           child: ShippingPage(),
         );
@@ -55,5 +64,11 @@ class HomeScreen extends StatelessWidget {
           child: Text("???"),
         );
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<AuthBloc>().add(const AuthEvent.listenToAuthChanges());
   }
 }

@@ -2,7 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+import 'blocs/auth/auth_bloc.dart';
 import 'blocs/home/home_bloc.dart';
+import 'di.dart';
 import 'firebase_options.dart';
 import 'screens/home_screen.dart';
 
@@ -11,10 +14,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await DI().init();
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => HomeBloc()),
+        BlocProvider(create: (context) => DI().sl<HomeBloc>()),
+        BlocProvider(create: (context) => DI().sl<AuthBloc>()),
       ],
       child: MyApp(),
     ),
