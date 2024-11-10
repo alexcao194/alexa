@@ -1,63 +1,26 @@
-import '../generared/assets.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class Item {
-  final String image, title;
-  final int amount, uid;
-  Item({
-    required this.uid,
-    required this.image,
-    required this.title,
-    required this.amount,
-  });
+import '../generared/assets.dart';
+import 'category.dart';
+
+part 'generated/item.freezed.dart';
+
+part 'generated/item.g.dart';
+
+@freezed
+@HiveType(typeId: 4)
+class Item with _$Item {
+  const factory Item({
+    @HiveField(0) @Default(0) int id,
+    @HiveField(1) @Default("PS5 Controller") String name,
+    @HiveField(2) @Default("PS5 Controller description") String description,
+    @HiveField(3) @Default(75) int amount,
+    @HiveField(4) @Default(Assets.pngPs5) String image,
+    @HiveField(5) @Default(Category()) Category category,
+  }) = _Item;
+
+  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 }
 
-List<Item> products = [
-  Item(
-    uid: 1,
-    title: "PS5 Controller",
-    amount: 75,
-    image: Assets.pngPs5,
-  ),
-  Item(
-    uid: 2,
-    title: "Drone",
-    amount: 155,
-    image: Assets.pngDrone,
-  ),
-  Item(
-    uid: 3,
-    title: "Beats Studio",
-    amount: 230,
-    image: Assets.pngBeats,
-  ),
-  Item(
-    uid: 4,
-    title: "Alexa",
-    amount: 45,
-    image: Assets.pngAlexa,
-  ),
-  Item(
-    uid: 5,
-    title: "Nintendo Switch",
-    amount: 298,
-    image: Assets.pngSwitch,
-  ),
-  Item(
-    uid: 6,
-    title: "Apple Watch",
-    amount: 165,
-    image: Assets.pngWatch,
-  ),
-  Item(
-    uid: 7,
-    title: "Macbook",
-    amount: 1950,
-    image: Assets.pngMac,
-  ),
-  Item(
-    uid: 8,
-    title: "Iphone",
-    amount: 1200,
-    image: Assets.pngIphone,
-  ),
-];
+

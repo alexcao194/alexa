@@ -35,7 +35,7 @@ class ECommerceItem extends StatelessWidget {
                 ],
               ),
               child: Hero(
-                tag: "${item!.uid}",
+                tag: "${item!.id}",
                 child: Image.asset(
                   item!.image,
                   fit: BoxFit.contain,
@@ -46,7 +46,7 @@ class ECommerceItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
-              item!.title,
+              item!.name,
               style: TextStyle(color: Colors.black.withOpacity(0.5)),
             ),
           ),

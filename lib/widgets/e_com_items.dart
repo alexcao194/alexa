@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sellar_e_commerce/responsive_layout.dart';
 
+import '../generared/assets.dart';
 import '../models/item.dart';
 import 'e_com_drawer.dart';
 import 'e_com_item_description.dart';
@@ -19,6 +20,57 @@ class ECommerceItems extends StatefulWidget {
 
 class _ECommerceItemsState extends State<ECommerceItems> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<Item> products = [
+    Item(
+      id: 1,
+      name: "PS5 Controller",
+      amount: 75,
+      image: Assets.pngPs5,
+    ),
+    Item(
+      id: 2,
+      name: "Drone",
+      amount: 155,
+      image: Assets.pngDrone,
+    ),
+    Item(
+      id: 3,
+      name: "Beats Studio",
+      amount: 230,
+      image: Assets.pngBeats,
+    ),
+    Item(
+      id: 4,
+      name: "Alexa",
+      amount: 45,
+      image: Assets.pngAlexa,
+    ),
+    Item(
+      id: 5,
+      name: "Nintendo Switch",
+      amount: 298,
+      image: Assets.pngSwitch,
+    ),
+    Item(
+      id: 6,
+      name: "Apple Watch",
+      amount: 165,
+      image: Assets.pngWatch,
+    ),
+    Item(
+      id: 7,
+      name: "Macbook",
+      amount: 1950,
+      image: Assets.pngMac,
+    ),
+    Item(
+      id: 8,
+      name: "Iphone",
+      amount: 1200,
+      image: Assets.pngIphone,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
