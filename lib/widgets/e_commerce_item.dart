@@ -37,6 +37,8 @@ class ECommerceItem extends StatelessWidget {
               child: Hero(
                 tag: "${item!.id}",
                 child: Image.asset(
+                  height: 200,
+                  width: 200,
                   item!.image,
                   fit: BoxFit.contain,
                 ),

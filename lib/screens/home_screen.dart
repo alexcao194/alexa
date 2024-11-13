@@ -22,20 +22,24 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        return Scaffold(
-          body: ResponsiveLayout(
-            iphone: _getPage(state.selectedTab),
-            ipad: _getPage(state.selectedTab),
-            macbook: Row(
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: _getPage(state.selectedTab),
-                ),
-                Expanded(
-                  child: ECommerceDrawer(),
-                ),
-              ],
+        return Title(
+          color: Colors.black,
+          title: "Alexa E-Commerce",
+          child: Scaffold(
+            body: ResponsiveLayout(
+              iphone: _getPage(state.selectedTab),
+              ipad: _getPage(state.selectedTab),
+              macbook: Row(
+                children: [
+                  Expanded(
+                    flex: 5,
+                    child: _getPage(state.selectedTab),
+                  ),
+                  Expanded(
+                    child: ECommerceDrawer(),
+                  ),
+                ],
+              ),
             ),
           ),
         );
